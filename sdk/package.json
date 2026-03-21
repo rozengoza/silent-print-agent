@@ -1,0 +1,45 @@
+{
+  "name": "silent-print-agent",
+  "version": "1.0.0",
+  "description": "Browser SDK for silent-print-agent — connect your web app to the local silent print agent for dialog-free printing.",
+  "author": "rozengoza",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/rozengoza/silent-print-agent#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rozengoza/silent-print-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rozengoza/silent-print-agent/issues"
+  },
+  "keywords": [
+    "silent-print",
+    "print-agent",
+    "websocket",
+    "no-print-dialog",
+    "thermal-print",
+    "pos",
+    "invoice",
+    "browser-print",
+    "local-agent",
+    "qz-tray-alternative",
+    "silent-printing",
+    "web-print"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

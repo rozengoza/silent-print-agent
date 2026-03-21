@@ -1,0 +1,9 @@
+dist/
+node_modules/
+.github/
+*.log
+*.dmg
+*.exe
+*.AppImage
+src/assets/icon.ico
+src/assets/icon.icns
