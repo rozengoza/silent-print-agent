@@ -16,14 +16,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: npm install
-      - run: npm run build:win
+      # cd into agent/ before running commands
+      - name: Install dependencies
+        working-directory: agent
+        run: npm install
+      - name: Build Windows
+        working-directory: agent
+        run: npm run build:win
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v4
         with:
           name: windows-build
-          path: dist/*.exe
+          path: agent/dist/*.exe  # path includes agent/
 
   build-mac:
     runs-on: macos-latest
@@ -32,14 +37,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: npm install
-      - run: npm run build:mac
+      # cd into agent/ before running commands
+      - name: Install dependencies
+        working-directory: agent
+        run: npm install
+      - name: Build Mac
+        working-directory: agent
+        run: npm run build:mac
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v4
         with:
           name: mac-build
-          path: dist/*.dmg
+          path: agent/dist/*.dmg  # path includes agent/
 
   release:
     needs: [build-windows, build-mac]
